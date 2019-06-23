@@ -73,16 +73,16 @@ module.exports = async ({ config, mode }) => {
       }
     },
     // SVG Font
-    {
-      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 100000,
-          mimetype: 'image/svg+xml'
-        }
-      }
-    },
+    // {
+    //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+    //   use: {
+    //     loader: 'url-loader',
+    //     options: {
+    //       limit: 100000,
+    //       mimetype: 'image/svg+xml'
+    //     }
+    //   }
+    // },
     // Common Image Formats
     {
       test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
