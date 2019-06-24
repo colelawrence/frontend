@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from "react"
 
-import { getTheme } from "../helpers";
-import { style } from "typestyle";
-import { px } from "csx";
+import { getTheme } from "../themes/ThemeContext"
+import { style } from "typestyle"
+import { px } from "csx"
 
-const $docsUrl = "https://qri.io/docs/";
+const $docsUrl = "https://qri.io/docs/"
 
 export const TopBar = () =>
   getTheme(theme => {
@@ -40,12 +40,12 @@ export const TopBar = () =>
           <a href={$docsUrl}>Docs</a>
         </div>
       </div>
-    );
-  });
+    )
+  })
 
 function TopBarLogo() {
   // @ts-ignore
-  const $logo = require("../assets/Web/Logo.svg");
+  const $logo = require("../assets/Web/Logo.svg")
 
   return (
     <img
@@ -57,5 +57,5 @@ function TopBarLogo() {
         marginRight: px(-80),
       })}
     />
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from "react"
 
-import { getTheme } from "../../helpers";
-import { style } from "typestyle";
-import { px, rotate, deg } from "csx";
-import { typeToStyle } from "../../themes";
+import { getTheme } from "../../themes/ThemeContext"
+import { style } from "typestyle"
+import { px, rotate, deg } from "csx"
+import { typeToStyle } from "../../themes"
 
 /**
  * @typedef {{
@@ -39,8 +39,8 @@ export const PrimaryTabs = props =>
           })}
         ></div>
       </div>
-    );
-  });
+    )
+  })
 
 /**
  * @param {TabConfig} tab
@@ -48,8 +48,8 @@ export const PrimaryTabs = props =>
 function createTab(tab, theme) {
   const fontStyles = typeToStyle(
     tab.active ? theme.Type.NormalTextActive : theme.Type.NormalText,
-  );
-  const color = tab.active ? theme.Colors.Text : theme.Colors.TextDim;
+  )
+  const color = tab.active ? theme.Colors.Text : theme.Colors.TextDim
   return (
     <div
       key={tab.title}
@@ -57,15 +57,15 @@ function createTab(tab, theme) {
       className={style(fontStyles, {
         cursor: "pointer",
         display: "inline-block",
-        lineHeight: px(24),
+        marginTop: px(10),
         color: color,
       })}
     >
       <div
         className={style({
           paddingTop: px(15),
-          paddingLeft: px(20),
-          paddingRight: px(30),
+          paddingLeft: px(16),
+          paddingRight: px(20),
           paddingBottom: px(2),
           display: "flex",
         })}
@@ -83,7 +83,7 @@ function createTab(tab, theme) {
         })}
       ></div>
     </div>
-  );
+  )
 }
 
 /** @param {{ color: string }} props */
@@ -99,5 +99,5 @@ function Dash({ color }) {
         marginRight: px(14),
       })}
     />
-  );
+  )
 }

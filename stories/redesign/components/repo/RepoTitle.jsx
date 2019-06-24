@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from "react"
 
-import { getTheme } from "../../helpers";
-import { style } from "typestyle";
-import { px, rotate, deg } from "csx";
-import { typeToStyle } from "../../themes";
+import { getTheme } from "../../themes/ThemeContext"
+import { style } from "typestyle"
+import { px, rotate, deg } from "csx"
+import { typeToStyle } from "../../themes"
 
 /**
  * @param {{
@@ -41,8 +41,8 @@ export const RepoTitle = props =>
           {props.repoTitle}
         </span>
       </div>
-    );
-  });
+    )
+  })
 
 /** @param {{ color: string }} props */
 function Dash({ color }) {
@@ -57,5 +57,5 @@ function Dash({ color }) {
         marginRight: px(14),
       })}
     />
-  );
+  )
 }

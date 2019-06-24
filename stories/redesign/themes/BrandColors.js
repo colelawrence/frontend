@@ -7,4 +7,4 @@ export const BrandColors = {
   DarkYellow: "#D6912A",
   DarkBlue: "#48B3D8",
   DarkGreen: "#9AB83F",
-};
+}

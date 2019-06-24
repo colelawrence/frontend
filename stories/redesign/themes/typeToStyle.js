@@ -1,4 +1,4 @@
-import { types } from "typestyle";
+import { types } from "typestyle"
 
 /**
  * @param {FontStyle} type
@@ -14,5 +14,5 @@ export function typeToStyle(type) {
     letterSpacing: type.LetterSpacing || "normal",
     textDecoration: type.Decoration || "none",
     textTransform: type.Transform || "none",
-  };
+  }
 }

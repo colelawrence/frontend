@@ -4,7 +4,7 @@
     "checkJs": true,
     "strict": false,
     "target": "es5",
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["esnext"],
     "outDir": "out"
   },

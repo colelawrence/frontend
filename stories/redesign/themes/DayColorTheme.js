@@ -1,6 +1,6 @@
 /// <reference path="./Theme.d.ts" >
 
-import { BrandColors } from "./BrandColors";
+import { BrandColors } from "./BrandColors"
 
 /**
  * Day theme
@@ -27,6 +27,6 @@ const DayColorTheme = {
   BackgroundYellow: BrandColors.BrightYellow,
   BackgroundBlue: BrandColors.BrightBlue,
   BackgroundGreen: BrandColors.BrightGreen,
-};
+}
 
-export default DayColorTheme;
+export default DayColorTheme

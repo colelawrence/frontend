@@ -19,4 +19,4 @@ export const BrandFonts = {
     SemiBold: 600,
     Bold: 700,
   },
-};
+}

@@ -1,6 +1,6 @@
 /// <reference path="./Theme.d.ts" >
 
-import { BrandFonts } from "./BrandFonts";
+import { BrandFonts } from "./BrandFonts"
 
 /**
  * Qri theme
@@ -44,14 +44,34 @@ const QriTypeTheme = {
   },
   Caption: {
     Family: BrandFonts.Body,
+    Weight: BrandFonts.BodyWeight.Normal,
+    Size: "14px",
+    LineHeight: "16px",
+    Transform: "uppercase",
+  },
+  CaptionSemibold: {
+    Family: BrandFonts.Body,
     Weight: BrandFonts.BodyWeight.SemiBold,
-    Size: "16px",
-    LineHeight: "22px",
+    Size: "14px",
+    LineHeight: "16px",
+    Transform: "uppercase",
+  },
+  CaptionCode: {
+    Family: BrandFonts.Code,
+    Weight: BrandFonts.CodeWeight.SemiBold,
+    Size: "14px",
+    LineHeight: "16px",
     Transform: "uppercase",
   },
   NormalText: {
     Family: BrandFonts.Body,
     Weight: BrandFonts.BodyWeight.Normal,
+    Size: "16px",
+    LineHeight: "22px",
+  },
+  NormalTextSemibold: {
+    Family: BrandFonts.Body,
+    Weight: BrandFonts.BodyWeight.SemiBold,
     Size: "16px",
     LineHeight: "22px",
   },
@@ -92,19 +112,6 @@ const QriTypeTheme = {
     Size: "12px",
     LineHeight: "16px",
   },
-  CaptionSemibold: {
-    Family: BrandFonts.Body,
-    Weight: BrandFonts.BodyWeight.SemiBold,
-    Size: "16px",
-    LineHeight: "22px",
-    Transform: "uppercase",
-  },
-  NormalTextSemibold: {
-    Family: BrandFonts.Body,
-    Weight: BrandFonts.BodyWeight.SemiBold,
-    Size: "16px",
-    LineHeight: "22px",
-  },
   SmallTextSemibold: {
     Family: BrandFonts.Body,
     Weight: BrandFonts.BodyWeight.SemiBold,
@@ -124,13 +131,6 @@ const QriTypeTheme = {
     Size: "20px",
     LineHeight: "25px",
     LetterSpacing: "-0.04em",
-  },
-  CaptionCode: {
-    Family: BrandFonts.Code,
-    Weight: BrandFonts.CodeWeight.SemiBold,
-    Size: "16px",
-    LineHeight: "20px",
-    Transform: "uppercase",
   },
   NormalCode: {
     Family: BrandFonts.Code,
@@ -152,6 +152,6 @@ const QriTypeTheme = {
     LineHeight: "15px",
     LetterSpacing: "0.01em",
   },
-};
+}
 
-export default QriTypeTheme;
+export default QriTypeTheme

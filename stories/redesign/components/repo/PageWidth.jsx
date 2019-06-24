@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from "react"
 
-import { style } from "typestyle";
-import { px, percent } from "csx";
-import { getTheme } from "../../helpers";
+import { style } from "typestyle"
+import { px, percent } from "csx"
+import { getTheme } from "../../themes/ThemeContext"
 
 /** Center and pad page content */
 export const PageWidth = ({ children }) =>
@@ -19,4 +19,4 @@ export const PageWidth = ({ children }) =>
     >
       {children}
     </div>
-  ));
+  ))

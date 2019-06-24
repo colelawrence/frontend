@@ -1,16 +1,18 @@
-import * as React from "react";
-import { RepoStateMock } from "./RepoStateMock";
-import { IRepoState, V } from "./IRepoState";
-import { Loader } from "../../Loader";
-import { StreamBuilder, ConnectionState } from "react-stream-builder";
+import * as React from "react"
+import { RepoStateMock } from "./RepoStateMock"
+import { IRepoState, V } from "./IRepoState"
+import { Loader } from "../../Loader"
+import { StreamBuilder, ConnectionState } from "react-stream-builder"
+import { EasyLogger } from "../../Logger"
+import { getTheme } from "../../../themes/ThemeContext"
 
 export const RepoStateContext = React.createContext<IRepoState>(
-  new RepoStateMock(),
-);
+  new RepoStateMock(new EasyLogger(console.error.bind("Default RepoState"))),
+)
 
 /** provider of RepoState */
 export function getRepo(fn: (repoState: IRepoState) => JSX.Element) {
-  return <RepoStateContext.Consumer>{fn}</RepoStateContext.Consumer>;
+  return <RepoStateContext.Consumer>{fn}</RepoStateContext.Consumer>
 }
 
 /** provider of V.Repo */
@@ -23,11 +25,11 @@ export function loadRepo(
       stream={repoState.repo}
       builder={snapshot => {
         if (snapshot.state !== ConnectionState.active) {
-          return loader;
+          return getTheme(theme => loader({ color: theme.Colors.Text }))
         } else {
-          return fn(snapshot.data, repoState);
+          return fn(snapshot.data, repoState)
         }
       }}
     />
-  ));
+  ))
 }

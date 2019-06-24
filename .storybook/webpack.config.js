@@ -1,6 +1,6 @@
 // adapted from https://storybook.js.org/docs/configurations/custom-webpack-config/
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require("webpack");
+const path = require("path");
 
 //  Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
@@ -12,30 +12,30 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push(
     {
       test: /\.css$/,
-      use: ['style-loader', 'css-loader']
+      use: ["style-loader", "css-loader"]
     },
     // Add SASS support  - compile all .global.scss files and pipe it to style.css
     {
       test: /\.global\.scss$/,
       use: [
-        { loader: 'style-loader' },
+        { loader: "style-loader" },
         {
-          loader: 'css-loader',
+          loader: "css-loader",
           options: {
             sourceMap: true
           }
         },
-        { loader: 'sass-loader' }
+        { loader: "sass-loader" }
       ]
     },
     // WOFF Font
     {
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
       use: {
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 100000,
-          mimetype: 'application/font-woff'
+          mimetype: "application/font-woff"
         }
       }
     },
@@ -43,10 +43,10 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
       use: {
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 100000,
-          mimetype: 'application/font-woff'
+          mimetype: "application/font-woff"
         }
       }
     },
@@ -54,10 +54,10 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
       use: {
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 500000,
-          mimetype: 'application/octet-stream'
+          mimetype: "application/octet-stream"
         }
       }
     },
@@ -65,10 +65,10 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
       use: {
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 100000,
-          mimetype: 'application/vnd.ms-fontobject'
+          mimetype: "application/vnd.ms-fontobject"
         }
       }
     },
@@ -86,32 +86,31 @@ module.exports = async ({ config, mode }) => {
     // Common Image Formats
     {
       test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
-      use: 'url-loader'
+      use: "url-loader"
     },
     {
       test: /\.tsx?$/,
-      use: [{
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-        }
-      }, {
-        loader: 'ts-loader',
-        options: {
-          // disable type checker
-          transpileOnly: true
-        }
-      }]
+      include: path.resolve(__dirname, "../stories"),
+      use: [
+        {
+          loader: require.resolve("ts-loader"),
+          options: { transpileOnly: true }
+        },
+        require.resolve("react-docgen-typescript-loader")
+      ]
     }
-  )
+  );
 
-  config.resolve.extensions.push('.ts', '.tsx')
+  config.resolve.extensions.push(".ts", ".tsx");
 
   config.plugins.push(
-    new webpack.NormalModuleReplacementPlugin(/(.*)\.APP_TARGET(\.*)/, function (resource) {
-      resource.request = resource.request.replace(/\.APP_TARGET/, '.web')
-    }))
+    new webpack.NormalModuleReplacementPlugin(/(.*)\.APP_TARGET(\.*)/, function(
+      resource
+    ) {
+      resource.request = resource.request.replace(/\.APP_TARGET/, ".web");
+    })
+  );
 
   // Return the altered config
-  return config
-}
+  return config;
+};
