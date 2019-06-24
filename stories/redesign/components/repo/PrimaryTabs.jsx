@@ -23,7 +23,9 @@ export const PrimaryTabs = props =>
   getTheme(theme => {
     return (
       <div>
-        <div style={{ display: "flex", marginBottom: px(-2) }}>
+        <div
+          style={{ display: "flex", marginBottom: px(-2), marginTop: px(10) }}
+        >
           <div style={{ flex: 1 }}>
             {props.leftTabs.map(tab => createTab(tab, theme))}
           </div>
@@ -57,7 +59,6 @@ function createTab(tab, theme) {
       className={style(fontStyles, {
         cursor: "pointer",
         display: "inline-block",
-        marginTop: px(10),
         color: color,
       })}
     >
