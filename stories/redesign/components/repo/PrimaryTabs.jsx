@@ -3,7 +3,6 @@ import * as React from "react"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px, rotate, deg } from "csx"
-import { typeToStyle } from "../../themes"
 
 /**
  * @typedef {{
@@ -46,9 +45,10 @@ export const PrimaryTabs = props =>
  * @param {TabConfig} tab
  * @param {Theme} theme */
 function createTab(tab, theme) {
-  const fontStyles = typeToStyle(
-    tab.active ? theme.Type.NormalTextActive : theme.Type.NormalText,
-  )
+  const fontStyles = tab.active
+    ? theme.Type.NormalTextActive
+    : theme.Type.NormalText
+
   const color = tab.active ? theme.Colors.Text : theme.Colors.TextDim
   return (
     <div

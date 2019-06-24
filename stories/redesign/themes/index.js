@@ -1,23 +1,24 @@
 import DayColors from "./DayColorTheme"
 import NightColors from "./NightColorTheme"
 
-import QriTypeTheme from "./QriTypeTheme"
+import { QriTypography } from "./QriTypography"
 import { QriSizes } from "./QriSizes"
+import { BrandFonts } from "./BrandFonts"
 
 /** @type {Theme} */
 const Day = {
+  Fonts: BrandFonts,
   Colors: DayColors,
-  Type: QriTypeTheme,
+  Type: QriTypography,
   Sizes: QriSizes,
 }
 
 /** @type {Theme} */
 const Night = {
+  Fonts: BrandFonts,
   Colors: NightColors,
-  Type: QriTypeTheme,
+  Type: QriTypography,
   Sizes: QriSizes,
 }
-
-export { typeToStyle } from "./typeToStyle"
 
 export { Day, Night }

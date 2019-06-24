@@ -3,7 +3,6 @@ import * as React from "react"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px, rotate, deg } from "csx"
-import { typeToStyle } from "../../themes"
 
 /**
  * @param {{
@@ -17,7 +16,7 @@ export const RepoTitle = props =>
   getTheme(theme => {
     return (
       <div
-        className={style(typeToStyle(theme.Type.LargeTextSemibold), {
+        className={style(theme.Type.LargeTextSemibold, {
           color: theme.Colors.Text,
           $nest: {
             "&>*": {

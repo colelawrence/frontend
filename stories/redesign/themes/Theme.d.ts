@@ -1,39 +1,39 @@
-declare type FontStyle = {
-  Family: string[]
+declare type TypographyStyle = {
+  fontFamily: string[]
   /** Usually: Normal: 400; Semibold: 600; Bold: 700; ExtraBold: 800; Black/Ultra: 900 */
-  Weight: number
-  Size: string
-  LineHeight: string
-  Style?: null | "normal" | "italic"
-  LetterSpacing?: null | string
-  Decoration?: null | "underline"
-  Transform?: null | "uppercase"
+  fontWeight: number
+  fontSize: string
+  lineHeight: string
+  fontStyle?: null | "normal" | "italic"
+  letterSpacing?: null | string
+  textDecoration?: null | "underline"
+  textTransform?: null | "uppercase"
 }
 
 declare type TypographyTheme = {
-  Heading1: FontStyle
-  Heading2: FontStyle
-  Heading3: FontStyle
-  Heading1Mobile: FontStyle
-  Heading4: FontStyle
-  NormalText: FontStyle
-  NormalTextSemibold: FontStyle
+  Heading1: TypographyStyle
+  Heading2: TypographyStyle
+  Heading3: TypographyStyle
+  Heading1Mobile: TypographyStyle
+  Heading4: TypographyStyle
+  NormalText: TypographyStyle
+  NormalTextSemibold: TypographyStyle
   /** Activated normal text -- bolded */
-  NormalTextActive: FontStyle
-  MediumText: FontStyle
-  MediumTextSemibold: FontStyle
-  LargeText: FontStyle
-  LargeTextSemibold: FontStyle
-  SmallText: FontStyle
-  SmallTextSemibold: FontStyle
-  Caption: FontStyle
-  CaptionSemibold: FontStyle
-  LargeCode: FontStyle
-  MediumCode: FontStyle
-  CaptionCode: FontStyle
-  NormalCode: FontStyle
-  NormalCodeLink: FontStyle
-  SmallCode: FontStyle
+  NormalTextActive: TypographyStyle
+  MediumText: TypographyStyle
+  MediumTextSemibold: TypographyStyle
+  LargeText: TypographyStyle
+  LargeTextSemibold: TypographyStyle
+  SmallText: TypographyStyle
+  SmallTextSemibold: TypographyStyle
+  Caption: TypographyStyle
+  CaptionSemibold: TypographyStyle
+  LargeCode: TypographyStyle
+  MediumCode: TypographyStyle
+  CaptionCode: TypographyStyle
+  NormalCode: TypographyStyle
+  NormalCodeLink: TypographyStyle
+  SmallCode: TypographyStyle
 }
 
 declare type ColorTheme = {
@@ -64,7 +64,29 @@ declare type ThemeSizes = {
   DialogRadius: string | number
 }
 
+declare type FamilyAndWeight = {
+  fontFamily: string[]
+  /** Usually: Normal: 400; Semibold: 600; Bold: 700; ExtraBold: 800; Black/Ultra: 900 */
+  fontWeight: number
+}
+
+declare type FontFamily = {
+  Light: FamilyAndWeight
+  Normal: FamilyAndWeight
+  Medium: FamilyAndWeight
+  Semibold: FamilyAndWeight
+  Bold: FamilyAndWeight
+  Ultra: FamilyAndWeight
+}
+
+declare type FontTheme = {
+  HeadingFont: FontFamily
+  BodyFont: FontFamily
+  CodeFont: FontFamily
+}
+
 declare type Theme = {
+  Fonts: FontTheme
   Type: TypographyTheme
   Colors: ColorTheme
   Sizes: ThemeSizes

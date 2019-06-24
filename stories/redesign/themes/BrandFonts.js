@@ -1,22 +1,36 @@
+const codeFamily = w => ({
+  fontFamily: ['"Source Code Pro"', "monospace"],
+  fontWeight: w,
+})
+const sansFamily = w => ({
+  fontFamily: ['"Open Sans"', "system-ui"],
+  fontWeight: w,
+})
+
+/** @type {FontTheme} */
 export const BrandFonts = {
-  Code: ['"Source Code Pro"', "monospace"],
-  // Weight values can behave differently between fonts
-  CodeWeight: {
-    Normal: 400,
-    Medium: 500,
-    SemiBold: 600,
-    Bold: 700,
+  CodeFont: {
+    Light: codeFamily(200),
+    Normal: codeFamily(400),
+    Medium: codeFamily(500),
+    Semibold: codeFamily(600),
+    Bold: codeFamily(700),
+    Ultra: codeFamily(900),
   },
-  Headings: ['"Open Sans"', "system-ui"],
-  HeadingWeight: {
-    Normal: 400,
-    SemiBold: 600,
-    Bold: 700,
+  HeadingFont: {
+    Light: sansFamily(200),
+    Normal: sansFamily(400),
+    Medium: sansFamily(500),
+    Semibold: sansFamily(600),
+    Bold: sansFamily(700),
+    Ultra: sansFamily(900),
   },
-  Body: ['"Open Sans"', "system-ui"],
-  BodyWeight: {
-    Normal: 400,
-    SemiBold: 600,
-    Bold: 700,
+  BodyFont: {
+    Light: sansFamily(200),
+    Normal: sansFamily(400),
+    Medium: sansFamily(500),
+    Semibold: sansFamily(600),
+    Bold: sansFamily(700),
+    Ultra: sansFamily(900),
   },
 }

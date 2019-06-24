@@ -4,13 +4,12 @@ import * as ReactDOM from "react-dom"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px } from "csx"
-import { typeToStyle } from "../../themes"
 import { loadRepo } from "./RepoState"
 import { DataIcons } from "./Icons"
 
 /** @param {Theme} theme */
 const $tabularBodyClass = theme =>
-  style(typeToStyle(theme.Type.NormalText), {
+  style(theme.Type.NormalText, {
     backgroundColor: theme.Colors.Background,
     borderTop: `solid 1px ${theme.Colors.Divider}`,
     overflowX: "auto",

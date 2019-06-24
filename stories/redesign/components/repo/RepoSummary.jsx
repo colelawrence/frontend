@@ -3,9 +3,7 @@ import * as React from "react"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px } from "csx"
-import { typeToStyle } from "../../themes"
 import { PageWidth } from "./PageWidth"
-import { loadRepo } from "./RepoState"
 import { RepoBody } from "./RepoBody"
 
 /**
@@ -108,19 +106,11 @@ export const RepoSummary = ({ repo }) =>
     }
 
     function H3(props) {
-      return (
-        <div className={style(typeToStyle(theme.Type.Heading3))}>
-          {props.children}
-        </div>
-      )
+      return <div className={style(theme.Type.Heading3)}>{props.children}</div>
     }
 
     function H4(props) {
-      return (
-        <div className={style(typeToStyle(theme.Type.Heading4))}>
-          {props.children}
-        </div>
-      )
+      return <div className={style(theme.Type.Heading4)}>{props.children}</div>
     }
   })
 
@@ -153,10 +143,15 @@ function RepoSummaryStats({ repo, theme }) {
         margin: `0 ${theme.Sizes.PageSidePadding}`,
       })}
     >
-      <div className={style(typeToStyle(theme.Type.Caption))}>{label}</div>
-      <div className={style(typeToStyle(theme.Type.MediumTextSemibold))}>
-        {value}
+      <div
+        className={style({
+          ...theme.Type.SmallText,
+          textTransform: "uppercase",
+        })}
+      >
+        {label}
       </div>
+      <div className={style({ ...theme.Fonts.BodyFont.Ultra })}>{value}</div>
     </div>
   )
   return (

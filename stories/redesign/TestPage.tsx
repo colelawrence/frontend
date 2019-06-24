@@ -1,5 +1,4 @@
 /// <reference path="./themes/Theme.d.ts">
-import { typeToStyle, Day } from "./themes"
 import * as React from "react"
 
 import { action } from "@storybook/addon-actions"
@@ -16,10 +15,7 @@ import { EasyLogger } from "./components/Logger"
 import { IRepoState } from "./components/repo/RepoState/IRepoState"
 import { INavState } from "./components/nav/INavState"
 
-/**
- * @param {{theme: Theme}} props
- */
-export default function TestPage({ theme }) {
+export default function TestPage({ theme }: { theme: Theme }) {
   const $page = style(
     {
       backgroundColor: theme.Colors.Background,
@@ -27,7 +23,7 @@ export default function TestPage({ theme }) {
       height: percent(100),
       overflow: "auto",
     },
-    typeToStyle(theme.Type.NormalText),
+    theme.Type.NormalText,
   )
 
   return (
@@ -57,11 +53,10 @@ class PageMock extends React.PureComponent {
   }
 
   componentWillMount() {
-    this.repoMock.loadRepo(2001, "will mount")
+    this.repoMock.loadRepo(0, "Initial test render")
   }
 
   render() {
-    this.repoMock.loadRepo(2001, "render")
     return (
       <RepoStateContext.Provider value={this.repoMock}>
         <NavStateContext.Provider value={this.navMock}>
