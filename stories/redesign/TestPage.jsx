@@ -7,6 +7,7 @@ import { ThemeContext } from "./helpers";
 import { TopBar } from "./components/TopBar.jsx";
 import { RepoNavigation } from "./components/repo/RepoNavigation";
 import { RepoSummary } from "./components/repo/RepoSummary";
+import { RepoStateContext, RepoStateMock } from "./components/repo/RepoState";
 
 /**
  * @param {{theme: Theme}} props
@@ -28,11 +29,13 @@ export default function TestPage({ theme }) {
 }
 
 function Page() {
-    return <React.Fragment>
+    const repoState = new RepoStateMock()
+    repoState.loadRepo(2001, 'TestPage initial load')
+    return <RepoStateContext.Provider value={repoState}>
         <TopBar />
         <div>
             <RepoNavigation/>
             <RepoSummary />
         </div>
-    </React.Fragment>
+    </RepoStateContext.Provider>
 }

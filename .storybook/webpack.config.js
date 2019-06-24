@@ -87,7 +87,25 @@ module.exports = async ({ config, mode }) => {
     {
       test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
       use: 'url-loader'
-    })
+    },
+    {
+      test: /\.tsx?$/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        }
+      }, {
+        loader: 'ts-loader',
+        options: {
+          // disable type checker
+          transpileOnly: true
+        }
+      }]
+    }
+  )
+
+  config.resolve.extensions.push('.ts', '.tsx')
 
   config.plugins.push(
     new webpack.NormalModuleReplacementPlugin(/(.*)\.APP_TARGET(\.*)/, function (resource) {

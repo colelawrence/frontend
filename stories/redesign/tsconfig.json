@@ -1,17 +1,13 @@
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "checkJs": true,
-        "strict": false,
-        "target": "es3",
-        "jsx": "preserve",
-        "lib": [
-            "esnext"
-        ],
-        "outDir": "out"
-    },
-    "compileOnSave": false,
-    "include": [
-        "**/*"
-    ]
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "strict": false,
+    "target": "es5",
+    "jsx": "preserve",
+    "lib": ["esnext"],
+    "outDir": "out"
+  },
+  "compileOnSave": false,
+  "include": ["*", "**/*"]
 }

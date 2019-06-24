@@ -1,16 +1,22 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { style } from 'typestyle';
-import { px, percent } from 'csx';
+import { style } from "typestyle";
+import { px, percent } from "csx";
+import { getTheme } from "../../helpers";
 
 /** Center and pad page content */
-export const PageWidth = ({ children }) => <div className={style({
-    maxWidth: px(870),
-    width: percent(100),
-    paddingLeft: px(10),
-    paddingRight: px(10),
-    marginLeft: 'auto',
-    marginRight: 'auto',
-})}>
-    {children}
-</div>
+export const PageWidth = ({ children }) =>
+  getTheme(theme => (
+    <div
+      className={style({
+        maxWidth: theme.Sizes.MaxPageWidth,
+        width: percent(100),
+        paddingLeft: theme.Sizes.PageSidePadding,
+        paddingRight: theme.Sizes.PageSidePadding,
+        marginLeft: "auto",
+        marginRight: "auto",
+      })}
+    >
+      {children}
+    </div>
+  ));
