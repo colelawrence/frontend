@@ -1,5 +1,5 @@
 import * as React from "react"
-import { RepoStateMock } from "./RepoStateMock"
+import { RepoStateMock } from "../Mock/RepoStateMock"
 import { IRepoState, V } from "./IRepoState"
 import { Loader } from "../../Loader"
 import { StreamBuilder, ConnectionState } from "react-stream-builder"

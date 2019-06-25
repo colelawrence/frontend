@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { getTheme } from "../../themes/ThemeContext"
+import { getTheme } from "../../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px, rotate, deg } from "csx"
 

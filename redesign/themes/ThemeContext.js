@@ -1,5 +1,5 @@
 /// <reference path="./themes/Theme.d.ts">
-import { Day } from "."
+import { Day } from "../themes"
 import * as React from "react"
 
 export const ThemeContext = React.createContext(Day)

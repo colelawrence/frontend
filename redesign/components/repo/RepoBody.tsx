@@ -6,9 +6,10 @@ import { style } from "typestyle"
 import { px } from "csx"
 import { loadRepo } from "./RepoState"
 import { DataIcons } from "./Icons"
+import { V } from "./RepoState/IRepoState"
 
 /** @param {Theme} theme */
-const $tabularBodyClass = theme =>
+const $tableBodyClass = theme =>
   style(theme.Typography.NormalText, {
     backgroundColor: theme.Colors.Background,
     borderTop: `solid 1px ${theme.Colors.Divider}`,
@@ -36,50 +37,48 @@ const $tabularBodyClass = theme =>
     },
   })
 
-/**
- * @param {{}} _props
- */
-export const RepoBody = _props =>
-  loadRepo(repo =>
-    getTheme(theme => {
-      if (repo.body.type === "tabular") {
-        const tableHeading = (
-          <TableHeading tabularBody={repo.body.tabularBody} />
-        )
+export const RepoBody = (props: { body: V.Body }) => {
+  if (props.body.type === "table") {
+    return <RepoTableBody table={props.body.table} />
+  } else {
+    return <div></div>
+  }
+}
 
-        return (
-          <div className={$tabularBodyClass(theme)}>
-            <table>
-              <thead>{tableHeading}</thead>
-              <tbody>
-                {repo.body.tabularBody.cells.map((row, idx) => (
-                  <tr key={idx}>
-                    {row.map((cell, idx) => (
-                      <td key={idx}>{cell}</td>
-                    ))}
-                  </tr>
+class RepoTableBody extends React.Component<{ table: V.TableBody }> {
+  render() {
+    const tableHeading = <RepoTableHeader columns={this.props.table.columns} />
+
+    return getTheme(theme => (
+      <div className={$tableBodyClass(theme)}>
+        <table>
+          <thead>{tableHeading}</thead>
+          <tbody>
+            {this.props.table.cells.map((row, idx) => (
+              <tr key={idx}>
+                {row.map((cell, idx) => (
+                  <td key={idx}>{cell}</td>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        )
-      } else {
-        return <div></div>
-      }
-    }),
-  )
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))
+  }
+}
 
-class TableHeading extends React.Component {
-  /**
-   * @param {{ tabularBody: import("./RepoState/IRepoState").V.TabularBody; }} props
-   */
+class RepoTableHeader extends React.Component<
+  { columns: V.TableBody["columns"] },
+  { sizes: number[] }
+> {
+  private columnRefs: HTMLTableHeaderCellElement[]
+
   constructor(props) {
     super(props)
-    /** @type {import("./RepoState/IRepoState").V.TabularBody} */
-    this.body = props.tabularBody
-    /** @type {HTMLTableHeaderCellElement[]} */
-    this.columnRefs = this.body.columns.map(_ => null)
-    this.state = { sizes: this.body.columns.map(_ => undefined) }
+
+    this.columnRefs = props.columns.map(_ => undefined)
+    this.state = { sizes: props.columns.map(_ => undefined) }
   }
   render() {
     return (
@@ -96,7 +95,7 @@ class TableHeading extends React.Component {
         >
           {getTheme(theme => (
             <>
-              {this.body.columns.map((col, idx) => (
+              {this.props.columns.map((col, idx) => (
                 <th
                   key={col.title}
                   ref={th => (this.columnRefs[idx] = th)}
@@ -112,14 +111,17 @@ class TableHeading extends React.Component {
         {/* measurements row – retains table layout if master control row moves or is positioned fixed */}
         {/* visibility: collapse ensures that column widths are consistent without showing */}
         <tr style={{ visibility: "collapse" }}>
-          {this.body.columns.map((col, idx) => (
+          {this.props.columns.map((col, idx) => (
             <th key={col.title} style={{ width: px(this.state.sizes[idx]) }} />
           ))}
         </tr>
       </>
     )
   }
+
   componentDidMount() {
+    // after mounting, measure each column's width and add the values to the state
+
     // @ts-ignore
     const tr = this.columnRefs.map(th => ReactDOM.findDOMNode(th))
     this.setState(() => ({
@@ -128,7 +130,7 @@ class TableHeading extends React.Component {
     }))
   }
 
-  dataIcon(type, color) {
+  dataIcon(type: string, color: string) {
     switch (type) {
       case "boolean":
         return DataIcons.DataBooleanIcon({ color })

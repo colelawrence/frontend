@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "noEmit": true,
+    "jsx": "react",
+    "strict": false,
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "outDir": "out"
+  },
+  "compileOnSave": false,
+  "include": ["redesign"]
+}

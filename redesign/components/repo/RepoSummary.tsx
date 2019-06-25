@@ -3,15 +3,14 @@ import * as React from "react"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px } from "csx"
-import { PageWidth } from "./PageWidth"
+import { PageWidth } from "../common/PageWidth"
 import { RepoBody } from "./RepoBody"
 import { Tag } from "../common/Tag"
 import { RepoSchemaDisplay } from "./RepoSchemaDisplay"
+import { V } from "./RepoState/IRepoState"
+import { Center } from "../common/Center"
 
-/**
- * @param {{ repo: import("./RepoState/IRepoState").V.Repo }} props
- */
-export const RepoSummary = ({ repo }) =>
+export const RepoSummary = ({ repo }: { repo: V.Repo }) =>
   getTheme(theme => {
     return (
       <div
@@ -38,15 +37,14 @@ export const RepoSummary = ({ repo }) =>
         <RepoSchemaDisplay schema={repo.schema} />
         <PageWidth>
           <h4>Visualizations</h4>
-          <Center>{repo.visualizations.map(Viz)}</Center>
+          <Center>{repo.visualizations.map(createViz)}</Center>
         </PageWidth>
         <br />
-        <RepoBody />
+        <RepoBody body={repo.body} />
       </div>
     )
 
-    /** @param {import("./RepoState/IRepoState").V.RepoVisualization} viz */
-    function Viz(viz) {
+    function createViz(viz: V.RepoVisualization) {
       return (
         <div
           key={viz.id}
@@ -83,23 +81,8 @@ export const RepoSummary = ({ repo }) =>
     }
   })
 
-function Center({ children }) {
-  return (
-    <div
-      children={children}
-      className={style({
-        textAlign: "center",
-        verticalAlign: "middle",
-        alignItems: "center",
-        alignContent: "center",
-      })}
-    />
-  )
-}
-
-/** @param {{ repo: import("./RepoState/IRepoState").V.Repo, theme: Theme }} props */
-function RepoSummaryStats({ repo, theme }) {
-  const statEl = (label, value) => (
+function RepoSummaryStats({ repo, theme }: { repo: V.Repo; theme: Theme }) {
+  const statEl = (label: string, value: string) => (
     <div
       className={style({
         display: "inline-block",

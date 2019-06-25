@@ -11,11 +11,9 @@ export const RepoSchemaDisplay = (props: { schema: V.RepoSchema }) =>
 const RepoSchemaBlock = ({
   schema,
   theme,
-  key,
 }: {
   schema: V.RepoSchema
   theme: Theme
-  key?: any
 }) => {
   const $schemaBlock = style({
     padding: em(0.25),
@@ -27,7 +25,7 @@ const RepoSchemaBlock = ({
 
   if (schema.type === "array") {
     return (
-      <div key={key} className={$schemaBlock}>
+      <div className={$schemaBlock}>
         <span style={{ float: "right" }}>array</span>
         <span style={{ float: "left" }}>{schema.array.itemCount}</span>
         <br />
@@ -38,7 +36,7 @@ const RepoSchemaBlock = ({
     )
   } else if (schema.type === "cell") {
     return (
-      <div key={key} className={$schemaBlock}>
+      <div className={$schemaBlock}>
         <span style={{ float: "right" }}>{schema.cell.kind}</span>
         <span style={{ float: "left" }}>{schema.cell.title}</span>
         <br />

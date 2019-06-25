@@ -1,21 +1,17 @@
 import * as React from "react"
 
-import { getTheme } from "../../themes/ThemeContext"
-import { style } from "typestyle"
-import { px, rotate, deg } from "csx"
-import { PageWidth } from "./PageWidth"
-import { RepoTitle } from "./RepoTitle"
-import { PrimaryTabs } from "./PrimaryTabs"
-import { RepoIcons } from "./Icons"
-import { getRepo, loadRepo } from "./RepoState"
-import { StreamBuilder, ConnectionState } from "react-stream-builder"
-import { FlashWarning } from "../common/FlashWarning"
-import { getNav } from "../nav/NavStateContext"
+import { getTheme } from "../../../themes/ThemeContext"
+import { getNav } from "../../nav/NavStateContext"
 
-/**
- * @param {{ repo: import("./RepoState/IRepoState").V.Repo }} _props
- */
-export const RepoNavigation = ({ repo }) =>
+import { style } from "typestyle"
+import { px } from "csx"
+import { PageWidth } from "../../common/PageWidth"
+import { RepoTitle } from "./RepoTitle"
+import { PrimaryTabs } from "../Tabs/PrimaryTabs"
+import { RepoIcons } from "../Icons"
+import { V } from "../RepoState/IRepoState"
+
+export const RepoNavigation = ({ repo }: { repo: V.Repo }) =>
   getTheme(theme =>
     getNav(navState => (
       <div
@@ -67,18 +63,3 @@ export const RepoNavigation = ({ repo }) =>
       </div>
     )),
   )
-
-/** @param {{ color?: string }} props */
-function Loader({ color }) {
-  return (
-    <div
-      className={style({
-        color: color || "inherit",
-        transform: rotate(deg(15)),
-        marginLeft: px(20),
-        marginRight: px(20),
-      })}
-      children="Loading..."
-    />
-  )
-}

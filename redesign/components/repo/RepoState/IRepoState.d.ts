@@ -63,14 +63,14 @@ declare namespace V {
 
   type Body =
     | {
-        type: "tabular"
-        tabularBody: TabularBody
+        type: "table"
+        table: TableBody
       }
     | {
         type: "dictionary"
       }
 
-  type TabularBody = {
+  type TableBody = {
     columns: TypeInfo[]
     cells: string[][]
   }

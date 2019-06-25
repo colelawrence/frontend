@@ -1,8 +1,17 @@
-import { configure } from "@storybook/react";
+import { configure, setAddon, addDecorator } from "@storybook/react";
+import { withInfo } from "@storybook/addon-info";
 
+// automatically import all redesign files ending in *.story.tsx
+const req = require.context("../redesign", true, /.story.tsx$/);
 function loadStories() {
-  require("../stories/index.tsx");
-  // You can require as many stories as you need.
+  req.keys().forEach(filename => req(filename));
 }
+
+addDecorator(
+  /** config 4.x https://github.com/storybookjs/storybook/tree/release/4.x/addons/info#options-and-defaults */
+  withInfo({
+    header: false // Global configuration for the info addon across all of your stories.
+  })
+);
 
 configure(loadStories, module);

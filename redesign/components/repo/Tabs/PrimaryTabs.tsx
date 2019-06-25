@@ -1,52 +1,40 @@
 import * as React from "react"
 
-import { getTheme } from "../../themes/ThemeContext"
+import { getTheme } from "../../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px, rotate, deg } from "csx"
 
-/**
- * @typedef {{
- *     title: string,
- *     onClick: Function,
- *     active: boolean,
- *     iconElt?: (color: string) => JSX.Element,
- * }} TabConfig
- */
+export type TabConfig = {
+  title: string
+  onClick: Function
+  active: boolean
+  iconElt?: (color: string) => JSX.Element
+}
 
-/**
- * @param {{
- *   leftTabs: TabConfig[]
- *   rightTabs: TabConfig[]
- * }} props
- */
-export const PrimaryTabs = props =>
-  getTheme(theme => {
-    return (
-      <div>
-        <div
-          style={{ display: "flex", marginBottom: px(-2), marginTop: px(10) }}
-        >
-          <div style={{ flex: 1 }}>
-            {props.leftTabs.map(tab => createTab(tab, theme))}
-          </div>
-          <div style={{ flex: 1, textAlign: "right" }}>
-            {props.rightTabs.map(tab => createTab(tab, theme))}
-          </div>
+export const PrimaryTabs = (props: {
+  leftTabs: TabConfig[]
+  rightTabs: TabConfig[]
+}) =>
+  getTheme(theme => (
+    <div>
+      <div style={{ display: "flex", marginBottom: px(-2), marginTop: px(10) }}>
+        <div style={{ flex: 1 }}>
+          {props.leftTabs.map(tab => createTab(tab, theme))}
         </div>
-        <div
-          className={style({
-            background: theme.Colors.Divider,
-            height: px(2),
-          })}
-        ></div>
+        <div style={{ flex: 1, textAlign: "right" }}>
+          {props.rightTabs.map(tab => createTab(tab, theme))}
+        </div>
       </div>
-    )
-  })
+      <div
+        style={{
+          background: theme.Colors.Divider,
+          height: px(2),
+        }}
+      ></div>
+    </div>
+  ))
 
-/**
- * @param {TabConfig} tab
- * @param {Theme} theme */
-function createTab(tab, theme) {
+function createTab(tab: TabConfig, theme: Theme) {
   const fontStyles = tab.active
     ? theme.Typography.NormalTextActive
     : theme.Typography.NormalText

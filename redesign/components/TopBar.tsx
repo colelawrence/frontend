@@ -23,6 +23,7 @@ export const TopBar = () =>
               "&>*": {
                 // everything together
                 display: "inline-block",
+                verticalAlign: "middle",
               },
               "a": {
                 textDecoration: "none",
