@@ -27,6 +27,38 @@ declare namespace V {
 
     body: Body
     bodySummary: string
+
+    schema: RepoSchema
+  }
+
+  type RepoSchema = RepoSchemaArray | RepoSchemaCell
+
+  type RepoSchemaArray = {
+    type: "array"
+    array: {
+      itemCount: string
+      items: RepoSchema[]
+    }
+  }
+
+  type RepoSchemaObject = {
+    type: "object"
+    object: {
+      propertyCount: string
+      properties: {
+        name: string
+        schema: RepoSchema
+      }[]
+    }
+  }
+
+  type RepoSchemaCell = {
+    type: "cell"
+    cell: {
+      kind: "string" | "number"
+      title: string
+      description: string
+    }
   }
 
   type Body =

@@ -16,7 +16,7 @@ export const RepoTitle = props =>
   getTheme(theme => {
     return (
       <div
-        className={style(theme.Type.LargeTextSemibold, {
+        className={style(theme.Typography.LargeTextSemibold, {
           color: theme.Colors.Text,
           $nest: {
             "&>*": {

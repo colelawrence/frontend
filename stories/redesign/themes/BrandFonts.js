@@ -1,9 +1,9 @@
 const codeFamily = w => ({
-  fontFamily: ['"Source Code Pro"', "monospace"],
+  fontFamily: ['"Source Code Pro"', "monospace"].join(","),
   fontWeight: w,
 })
 const sansFamily = w => ({
-  fontFamily: ['"Open Sans"', "system-ui"],
+  fontFamily: ['"Open Sans"', "system-ui"].join(","),
   fontWeight: w,
 })
 
@@ -13,7 +13,7 @@ export const BrandFonts = {
     Light: codeFamily(200),
     Normal: codeFamily(400),
     Medium: codeFamily(500),
-    Semibold: codeFamily(600),
+    Semibold: codeFamily(500),
     Bold: codeFamily(700),
     Ultra: codeFamily(900),
   },

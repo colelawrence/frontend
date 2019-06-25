@@ -5,6 +5,8 @@ import { style } from "typestyle"
 import { px } from "csx"
 import { PageWidth } from "./PageWidth"
 import { RepoBody } from "./RepoBody"
+import { Tag } from "../common/Tag"
+import { RepoSchemaDisplay } from "./RepoSchemaDisplay"
 
 /**
  * @param {{ repo: import("./RepoState/IRepoState").V.Repo }} props
@@ -20,16 +22,22 @@ export const RepoSummary = ({ repo }) =>
       >
         <br />
         <PageWidth>
-          <H3>{repo.title}</H3>
+          <h3>{repo.title}</h3>
           <p>{repo.description}</p>
-          <p>Keywords: {repo.keywords.join(", ")}</p>
+          <p>
+            <b>Keywords</b>: {repo.keywords.join(", ")}
+          </p>
           <Center>
             <RepoSummaryStats repo={repo} theme={theme}></RepoSummaryStats>
           </Center>
         </PageWidth>
         <br />
         <PageWidth>
-          <H4>Visualizations</H4>
+          <h4>Schema</h4>
+        </PageWidth>
+        <RepoSchemaDisplay schema={repo.schema} />
+        <PageWidth>
+          <h4>Visualizations</h4>
           <Center>{repo.visualizations.map(Viz)}</Center>
         </PageWidth>
         <br />
@@ -42,16 +50,25 @@ export const RepoSummary = ({ repo }) =>
       return (
         <div
           key={viz.id}
-          style={{
+          className={style({
             position: "relative",
             display: "inline-block",
+            textAlign: "left",
             margin: theme.Sizes.PageSidePadding,
             color: theme.Colors.TextDim,
             width: px(200),
-          }}
+          })}
         >
           {viz.title}
-          {vizTag(viz.type)}
+          <div
+            className={style({
+              position: "absolute",
+              right: 0,
+              top: 0,
+            })}
+          >
+            <Tag title={viz.type} />
+          </div>
           <div
             style={{
               width: px(200),
@@ -64,54 +81,6 @@ export const RepoSummary = ({ repo }) =>
         </div>
       )
     }
-
-    function vizTag(type) {
-      /** @type {React.CSSProperties} */
-      const pos = {
-        position: "absolute",
-        right: 0,
-        top: 0,
-        borderRadius: px(3),
-        padding: "2px 4px",
-        color: theme.Colors.Text,
-      }
-
-      switch (String(type).toLowerCase()) {
-        case "html":
-          return (
-            <div style={{ background: theme.Colors.BackgroundGreen, ...pos }}>
-              HTML
-            </div>
-          )
-        case "d3":
-          return (
-            <div style={{ background: theme.Colors.BackgroundBlue, ...pos }}>
-              D3
-            </div>
-          )
-        case "webgl":
-          return (
-            <div style={{ background: theme.Colors.BackgroundYellow, ...pos }}>
-              WEB GL
-            </div>
-          )
-        case "ipyth":
-        default:
-          return (
-            <div style={{ background: theme.Colors.BackgroundRed, ...pos }}>
-              D3
-            </div>
-          )
-      }
-    }
-
-    function H3(props) {
-      return <div className={style(theme.Type.Heading3)}>{props.children}</div>
-    }
-
-    function H4(props) {
-      return <div className={style(theme.Type.Heading4)}>{props.children}</div>
-    }
   })
 
 function Center({ children }) {
@@ -123,11 +92,6 @@ function Center({ children }) {
         verticalAlign: "middle",
         alignItems: "center",
         alignContent: "center",
-        $nest: {
-          "&>*": {
-            textAlign: "left",
-          },
-        },
       })}
     />
   )
@@ -145,7 +109,7 @@ function RepoSummaryStats({ repo, theme }) {
     >
       <div
         className={style({
-          ...theme.Type.SmallText,
+          ...theme.Typography.SmallText,
           textTransform: "uppercase",
         })}
       >

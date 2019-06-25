@@ -79,6 +79,94 @@ export class RepoStateMock implements IRepoState {
           ]),
         },
       },
+      schema: {
+        type: "array",
+        array: {
+          itemCount: "items",
+          items: [
+            {
+              type: "array",
+              array: {
+                itemCount: "9 items",
+                items: [
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "roster",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                  {
+                    type: "cell",
+                    cell: {
+                      title: "date",
+                      kind: "string",
+                      description: "date in YYYY-MM-DD",
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
     })
   }
 }

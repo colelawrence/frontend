@@ -1,5 +1,5 @@
 declare type TypographyStyle = {
-  fontFamily: string[]
+  fontFamily: string
   /** Usually: Normal: 400; Semibold: 600; Bold: 700; ExtraBold: 800; Black/Ultra: 900 */
   fontWeight: number
   fontSize: string
@@ -60,12 +60,14 @@ declare type ThemeSizes = {
   MaxPageWidth: string | number
   /** css length */
   PageSidePadding: string | number
-  /** css length */
-  DialogRadius: string | number
+  /** css length – dialogs, codeblocks */
+  MediumRadius: string | number
+  /** css length – tiny tags, inline code, etc */
+  SmallRadius: string | number
 }
 
 declare type FamilyAndWeight = {
-  fontFamily: string[]
+  fontFamily: string
   /** Usually: Normal: 400; Semibold: 600; Bold: 700; ExtraBold: 800; Black/Ultra: 900 */
   fontWeight: number
 }
@@ -87,7 +89,7 @@ declare type FontTheme = {
 
 declare type Theme = {
   Fonts: FontTheme
-  Type: TypographyTheme
+  Typography: TypographyTheme
   Colors: ColorTheme
   Sizes: ThemeSizes
 }

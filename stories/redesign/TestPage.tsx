@@ -23,15 +23,11 @@ export default function TestPage({ theme }: { theme: Theme }) {
       height: percent(100),
       overflow: "auto",
     },
-    theme.Type.NormalText,
+    theme.Typography.NormalText,
   )
 
   return (
     <ThemeContext.Provider value={theme}>
-      <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
-        rel="stylesheet"
-      />
       <div className={$page}>
         <PageMock />
       </div>

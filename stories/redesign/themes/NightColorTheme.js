@@ -14,10 +14,10 @@ const NightColorTheme = {
   InvertBackground: "#04172B",
   InvertText: "#F0EDE3",
 
-  Divider: "rgba(183, 179, 173, 0.3)",
+  Divider: "#46505A",
 
   Text: "#F0EDE3",
-  TextDim: "#A7A7A7",
+  TextDim: "#6F7F8E",
 
   TextRed: BrandColors.BrightRed,
   TextYellow: BrandColors.BrightYellow,

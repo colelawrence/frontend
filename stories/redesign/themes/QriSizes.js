@@ -1,4 +1,4 @@
-/// <reference path="./Theme.d.ts" >
+/// <reference path="./Theme.d.ts" />
 
 import { px } from "csx"
 
@@ -9,5 +9,6 @@ import { px } from "csx"
 export const QriSizes = {
   MaxPageWidth: px(870),
   PageSidePadding: px(10),
-  DialogRadius: px(6),
+  MediumRadius: px(6),
+  SmallRadius: px(3),
 }

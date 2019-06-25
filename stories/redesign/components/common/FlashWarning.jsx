@@ -10,7 +10,7 @@ export function FlashWarning({ children }) {
       className={style({
         border: `2px solid ${theme.Colors.TextYellow}`,
         backgroundColor: theme.Colors.BackgroundYellow,
-        borderRadius: theme.Sizes.DialogRadius,
+        borderRadius: theme.Sizes.MediumRadius,
         padding: em(1),
         margin: em(2),
       })}

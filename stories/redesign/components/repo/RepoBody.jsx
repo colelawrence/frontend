@@ -9,7 +9,7 @@ import { DataIcons } from "./Icons"
 
 /** @param {Theme} theme */
 const $tabularBodyClass = theme =>
-  style(theme.Type.NormalText, {
+  style(theme.Typography.NormalText, {
     backgroundColor: theme.Colors.Background,
     borderTop: `solid 1px ${theme.Colors.Divider}`,
     overflowX: "auto",

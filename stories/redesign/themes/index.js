@@ -9,7 +9,7 @@ import { BrandFonts } from "./BrandFonts"
 const Day = {
   Fonts: BrandFonts,
   Colors: DayColors,
-  Type: QriTypography,
+  Typography: QriTypography,
   Sizes: QriSizes,
 }
 
@@ -17,7 +17,7 @@ const Day = {
 const Night = {
   Fonts: BrandFonts,
   Colors: NightColors,
-  Type: QriTypography,
+  Typography: QriTypography,
   Sizes: QriSizes,
 }
 

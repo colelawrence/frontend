@@ -48,8 +48,8 @@ export const PrimaryTabs = props =>
  * @param {Theme} theme */
 function createTab(tab, theme) {
   const fontStyles = tab.active
-    ? theme.Type.NormalTextActive
-    : theme.Type.NormalText
+    ? theme.Typography.NormalTextActive
+    : theme.Typography.NormalText
 
   const color = tab.active ? theme.Colors.Text : theme.Colors.TextDim
   return (

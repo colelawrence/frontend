@@ -10,7 +10,7 @@ const DayColorTheme = {
   Background: "#FFFFFF",
   BackgroundDim: "#F3F2F1",
   BackgroundHighlight: "#D2F4FF",
-  Divider: "rgba(183, 179, 173, 0.3)",
+  Divider: "#E1DFDC",
 
   InvertBackground: "#253E57",
   InvertText: "#FFFFFF",
