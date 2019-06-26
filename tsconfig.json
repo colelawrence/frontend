@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "esnext",
-    "lib": ["esnext"],
+    "allowJs": true,
+    "checkJs": true,
+    "module": "commonjs",
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "node",
     "noEmit": true,
     "jsx": "react",
+    // "jsx": "preserve",
     "strict": false,
-    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "outDir": "out"
+    "allowSyntheticDefaultImports": true
   },
-  "compileOnSave": false,
-  "include": ["redesign"]
+  "exclude": ["dll", "node_modules"]
 }

@@ -1,8 +1,9 @@
-import React from "react"
+import * as React from "react"
 
 import { style } from "typestyle"
-import { percent } from "csx"
+import { percent, viewHeight } from "csx"
 import { ThemeContext } from "../themes/ThemeContext"
+import { TypographyStyles } from "../components/TypographyStyles";
 
 export function ThemeBase({
   theme,
@@ -16,6 +17,7 @@ export function ThemeBase({
       backgroundColor: theme.Colors.Background,
       color: theme.Colors.Text,
       height: percent(100),
+      paddingBottom: viewHeight(20),
       overflow: "auto",
     },
     theme.Typography.NormalText,
@@ -23,7 +25,9 @@ export function ThemeBase({
 
   return (
     <ThemeContext.Provider value={theme}>
-      <div className={$page} children={children} />
+      <TypographyStyles>
+        <div className={$page} children={children} />
+      </TypographyStyles>
     </ThemeContext.Provider>
   )
 }

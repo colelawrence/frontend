@@ -1,0 +1,1 @@
+export const LAYOUT_RESIZE = 'LAYOUT_RESIZE'

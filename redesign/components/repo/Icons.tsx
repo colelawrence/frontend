@@ -123,7 +123,9 @@ export namespace DataIcons {
       />
     </svg>
   )
+}
 
+export namespace ContextIcons {
   export const InfoIcon = ({ color }: IconProps) => (
     <svg
       width="16"

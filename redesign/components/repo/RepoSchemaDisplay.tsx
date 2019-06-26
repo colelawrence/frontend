@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
-import { px, rotate, deg, em } from "csx"
+import { em } from "csx"
 import { V } from "./RepoState/IRepoState"
 
 export const RepoSchemaDisplay = (props: { schema: V.RepoSchema }) =>

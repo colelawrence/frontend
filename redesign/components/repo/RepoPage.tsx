@@ -3,9 +3,9 @@ import * as React from "react"
 import { loadRepo } from "./RepoState"
 import { FlashWarning } from "../common/FlashWarning"
 import { RepoSummary } from "./RepoSummary"
-import { RepoNavigation } from "./RepoNavigation"
-import { PageWidth } from "./PageWidth"
+import { RepoNavigation } from "./RepoNavigation/RepoNavigation"
 import { TypographyStyles } from "../TypographyStyles"
+import { PageWidth } from "../common/PageWidth"
 
 export function RepoPage() {
   return (

@@ -1,6 +1,6 @@
-import { INavState } from "./INavState"
 import { IRepoState } from "../repo/RepoState/IRepoState"
 import { ILogger } from "../Logger"
+import { INavState } from "./NavStateContext";
 
 export class NavStateMock implements INavState {
   constructor(private _log: ILogger, private repoState: IRepoState) {

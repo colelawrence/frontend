@@ -46,6 +46,9 @@ app/node_modules
 flow-typed/npm/*
 !flow-typed/npm/module_vx.x.x.js
 
+# awesome typescript loader
+.awcache
+
 # App packaged
 release
 app/main.prod.js
