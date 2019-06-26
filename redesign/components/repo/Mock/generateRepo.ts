@@ -1,4 +1,4 @@
-import { V } from "../RepoState/IRepoState"
+import { V } from "../IRepoState"
 
 const date = randomer("2018-11-12", "2018-11-13")
 const roster = randomer("", "NON-ACTIVE")

@@ -1,6 +1,6 @@
 import * as React from "react"
-import { RepoStateMock } from "../Mock/RepoStateMock"
-import { IRepoState, V } from "./IRepoState"
+import { RepoStateMock } from "./RepoStateMock"
+import { IRepoState, V } from "../IRepoState"
 import { Loader } from "../../Loader"
 import { StreamBuilder, ConnectionState } from "react-stream-builder"
 import { EasyLogger } from "../../Logger"

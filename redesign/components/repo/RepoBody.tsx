@@ -4,9 +4,9 @@ import * as ReactDOM from "react-dom"
 import { getTheme } from "../../themes/ThemeContext"
 import { style } from "typestyle"
 import { px } from "csx"
-import { loadRepo } from "./RepoState"
+import { loadRepo } from "./__RepoState"
 import { DataIcons } from "./Icons"
-import { V } from "./RepoState/IRepoState"
+import { V } from "./IRepoState"
 
 /** @param {Theme} theme */
 const $tableBodyClass = theme =>

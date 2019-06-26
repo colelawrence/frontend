@@ -7,7 +7,7 @@ import { PageWidth } from "../common/PageWidth"
 import { RepoBody } from "./RepoBody"
 import { Tag } from "../common/Tag"
 import { RepoSchemaDisplay } from "./RepoSchemaDisplay"
-import { V } from "./RepoState/IRepoState"
+import { V } from "./IRepoState"
 import { Center } from "../common/Center"
 
 export const RepoSummary = ({ repo }: { repo: V.Repo }) =>

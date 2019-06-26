@@ -1,4 +1,4 @@
-import { IRepoState } from "../repo/RepoState/IRepoState"
+import { IRepoState } from "../repo/IRepoState"
 import { ILogger } from "../Logger"
 import { INavState } from "./NavStateContext";
 

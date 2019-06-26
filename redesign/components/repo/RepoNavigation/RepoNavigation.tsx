@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { getTheme } from "../../../themes/ThemeContext"
-import { getNav } from "../../nav/NavStateContext"
+import { getNav } from "../../__NavState/NavStateContext"
 
 import { style } from "typestyle"
 import { px } from "csx"
@@ -9,7 +9,7 @@ import { PageWidth } from "../../common/PageWidth"
 import { RepoTitle } from "./RepoTitle"
 import { PrimaryTabs } from "../Tabs/PrimaryTabs"
 import { RepoIcons } from "../Icons"
-import { V } from "../RepoState/IRepoState"
+import { V } from "../IRepoState"
 
 export const RepoNavigation = ({ repo }: { repo: V.Repo }) =>
   getTheme(theme =>

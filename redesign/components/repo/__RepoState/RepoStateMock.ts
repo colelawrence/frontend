@@ -1,7 +1,7 @@
 import { BehaviorSubject } from "rxjs"
-import { IRepoState, V } from "../RepoState/IRepoState"
+import { IRepoState, V } from "../IRepoState"
 import { ILogger } from "../../Logger"
-import { generateRepo } from "./generateRepo"
+import { generateRepo } from "../Mock/generateRepo"
 
 export class RepoStateMock implements IRepoState {
   private _repo = new BehaviorSubject<V.Repo>(null)

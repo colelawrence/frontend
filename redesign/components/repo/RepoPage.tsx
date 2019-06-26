@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { loadRepo } from "./RepoState"
+import { loadRepo } from "./__RepoState"
 import { FlashWarning } from "../common/FlashWarning"
 import { RepoSummary } from "./RepoSummary"
 import { RepoNavigation } from "./RepoNavigation/RepoNavigation"
