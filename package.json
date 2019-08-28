@@ -52,7 +52,8 @@
     "electron:package:win": "npm run electron:build && electron:build --win --x64",
     "electron:test:all": "npm run lint && npm run electron:build && npm run test && npm run electron:test:e2e",
     "electron:test:e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js e2e",
-    "storybook": "start-storybook -p 3001"
+    "storybook": "start-storybook -p 3001",
+    "build-storybook": "build-storybook --output-dir ./docs/storybook"
   },
   "browserslist": "electron 1.6",
   "build": {

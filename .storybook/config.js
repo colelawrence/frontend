@@ -1,5 +1,15 @@
-import { configure, setAddon, addDecorator } from "@storybook/react";
+import { configure, addDecorator, addParameters } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
+
+import theme from "./theme";
+
+addParameters({
+  options: {
+    showPanel: false,
+    isToolshown: false,
+    theme
+  }
+});
 
 // automatically import all redesign files ending in *.story.tsx
 const req = require.context("../redesign", true, /.story.tsx$/);

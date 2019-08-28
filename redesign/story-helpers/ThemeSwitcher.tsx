@@ -3,15 +3,14 @@ import * as React from "react"
 import { ThemeBase } from "./ThemeBase"
 import { Night, Day } from "../themes"
 
+type State = { isNight: boolean; show: boolean }
+
 // This could probably be made into a storybook somehow...
-export class ThemeSwitcher extends React.Component<
-  {},
-  { isNight: boolean; show: boolean }
-> {
+export class ThemeSwitcher extends React.Component<{}, State> {
   constructor(props) {
     super(props)
 
-    this.state = { isNight: false, show: true }
+    this.state = initialStateBasedOnQueryString()
   }
 
   render() {
@@ -43,5 +42,13 @@ export class ThemeSwitcher extends React.Component<
         {this.props.children}
       </ThemeBase>
     )
+  }
+}
+
+function initialStateBasedOnQueryString(): State {
+  const search = window.location.search
+  return {
+    isNight: search.includes("night-mode"),
+    show: !search.includes("hide-theme-switcher"),
   }
 }
